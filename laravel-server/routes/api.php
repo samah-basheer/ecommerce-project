@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
+
     //  product apis
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'index']);
@@ -47,5 +49,13 @@ Route::prefix('v1')->group(function () {
         Route::get('/edit/{id}', [WishlistController::class, 'edit']);
         Route::post('/update/{id}', [WishlistController::class, 'update']);
         Route::delete('/delete/{id}', [WishlistController::class, 'destroy']);
+    });
+
+    // auth
+    Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
+        Route::post('/register', [AuthController::class, 'register']);
+        Route::post('/login', [AuthController::class, 'login']);
+        Route::get('/profile', [AuthController::class, 'profile']);
+        Route::post('/logout', [AuthController::class, 'logout']);
     });
 });
