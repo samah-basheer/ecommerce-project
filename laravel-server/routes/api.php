@@ -21,10 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::prefix('product')->group(function () {
-        Route::get('/', [ProductController::class, 'getProducts']);
-        Route::post('/create', [ProductController::class, 'addProduct']);
-        Route::get('/edit/{id}', [ProductController::class, 'editProduct']);
-        Route::post('/update/{id}', [ProductController::class, 'updateProduct']);
-        Route::delete('/delete/{id}', [ProductController::class, 'deleteProduct']);
+        Route::get('/', [ProductController::class, 'index']);
+        Route::post('/create', [ProductController::class, 'create']);
+        Route::get('/edit/{id}', [ProductController::class, 'edit']);
+        Route::post('/update/{id}', [ProductController::class, 'update']);
+        Route::delete('/delete/{id}', [ProductController::class, 'destroy']);
     });
 });

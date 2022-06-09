@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function getProducts() {
+    public function index() {
         $products = Product::with('category', 'inventory')->get();
         return response()->json([
             "status" => "Success",
             "products" => $products
         ], 200);
     }
-    public function addProduct(Request $request) {
+    public function create(Request $request) {
         $product = new Product;
         $product->name = $request->name;
         $product->description = $request->description;
@@ -28,14 +28,14 @@ class ProductController extends Controller
             "status" => "Success"
         ], 200);
     }
-    public function editProduct($id) {
+    public function edit($id) {
         $product = Product::with('category', 'inventory')->findOrFail($id);
         return response()->json([
             "status" => "Success",
             "product" => $product
         ]);
     }
-    public function updateProduct(Request $request, $id) {
+    public function update(Request $request, $id) {
         $product = Product::with('category', 'inventory')->findOrFail($id);
         $product->name = $request->name;
         $product->description = $request->description;
@@ -48,7 +48,7 @@ class ProductController extends Controller
             "status" => "Success"
         ]);
     }
-    public function deleteProduct($id) {
+    public function destroy($id) {
         $product = Product::findOrFail($id);
         $product->delete();
         return response()->json([
