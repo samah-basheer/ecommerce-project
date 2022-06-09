@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    public function inventory() {
+        return $this->belongsTo(Inventory::class, 'inventory_id');
+    }
+    public function category() {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
