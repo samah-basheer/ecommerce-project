@@ -11,10 +11,14 @@
 <body>
     <nav class="navbar" >
         <div class="logo_header">
-            <a href="/" class="logo">E-commerce Site</a>
             <button class="navbar_toggle">
                 <i class="fas fa-bars"></i>
             </button>
+            <a href="/" class="logo">E-commerce Site</a>
+            <div class="header-action mobile">
+                <i class="fa fa-user-o" style="color:red;"></i>
+                <i class="far fa-heart" style="color:red;"></i>
+            </div>
         </div>
         <ul class="main_nav">
             <li>
@@ -33,4 +37,8 @@
                 <a href="#" class="nav_links">Blog</a>
             </li>
         </ul>
+        <div class="header-action desktop">
+            <i class="fa fa-user-o" style="color:red;"></i>
+            <i class="far fa-heart" style="color:red;"></i>
+        </div>
     </nav>

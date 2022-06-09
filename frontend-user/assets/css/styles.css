@@ -40,6 +40,10 @@ a {
     margin-left: 2%;
     width: 20%;
 }
+.header-action {
+    margin-left: 5%;
+    margin-right: 5%;
+}
 .main_nav {
     display: flex;
     width: 50%;
@@ -55,6 +59,9 @@ a {
     display: inline;
     color: #ffffff;
     margin-left: 30px;
+}
+.header-action.mobile {
+    display: none;
 }
 .main_nav li a {
     color: var(--secondary);
@@ -72,6 +79,7 @@ a {
     }
     .logo {
         color: #ffffff;
+        margin-left: 0%;
     }
     .main_nav {
         display: none;
@@ -112,5 +120,10 @@ a {
         margin-right: 2%;
         width: auto;
     }
-
+    .header-action.mobile {
+        display: block;
+    }
+    .header-action.desktop {
+        display: none;
+    }
 }
