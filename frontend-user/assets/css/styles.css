@@ -133,24 +133,30 @@ a {
     .header-action.desktop {
         display: none;
     }
-    .wrapper {
+    .wrapper-content {
         flex-direction: column;
+    }
+    .products > div {
+        max-width: 100% !important;
     }
 }
 .banner img {
     width: 100%;
     max-width: 100%;
 }
-.wrapper {
-    max-width: 1050px;
-    margin: 0 auto;
+.wrapper-content {
     display: flex;
+}
+.wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
 }
 .wrapper > div {
     flex: 1 1;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 .about img {
     max-width: 100%;
@@ -168,16 +174,6 @@ a {
     position: relative;
     font-weight: 400;
 }
-h2.title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 3px;
-    width: 30px;
-    background-color: var(--primary);
-    border-radius: 25px;
-}
 p {
     font-weight: 100;
 }
@@ -191,4 +187,29 @@ footer {
 .footer {
     max-width: 1200px;
     margin: 0 auto;
+}
+.justify-center {
+    justify-content: center;
+}
+.products {
+    display: flex;
+}
+.products > div {
+    max-width: 25%;
+}
+.products .product-img img {
+    max-width: 100%;
+    width: 100%;
+}
+.single-product {
+    text-align: center;
+}
+.product-title {
+    padding-top: 17px;
+}
+.product-price {
+    padding-bottom: 17px;
+}
+.text-center {
+    text-align: center;
 }
