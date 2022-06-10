@@ -17,36 +17,44 @@
     <div class="spacer"></div>
     <div class="products wrapper-content">
         <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/MICELLAR.png">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
+            <a href="/pages/single-product.php">
+                <div class="product-img">
+                    <img src="./assets/img/MICELLAR.png">
+                </div>
+                <div class="product-title">Micellar Water</div>
+                <div class="product-price">LBP 39,000</div>
+            </a>
         </div>
         <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/522-prom-night.jpg">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
+            <a href="/pages/single-product.php">
+                <div class="product-img">
+                    <img src="./assets/img/522-prom-night.jpg">
+                </div>
+                <div class="product-title">Micellar Water</div>
+                <div class="product-price">LBP 39,000</div>
+            </a>
         </div>
         <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/LIPSTICK-TOFFEE.jpg">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
+            <a href="/pages/single-product.php">
+                <div class="product-img">
+                    <img src="./assets/img/LIPSTICK-TOFFEE.jpg">
+                </div>
+                <div class="product-title">Micellar Water</div>
+                <div class="product-price">LBP 39,000</div>
+            </a>
         </div>
         <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/WATERPROOF-LIPLINER.jpg">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
+            <a href="/pages/single-product.php">
+                <div class="product-img">
+                    <img src="./assets/img/WATERPROOF-LIPLINER.jpg">
+                </div>
+                <div class="product-title">Micellar Water</div>
+                <div class="product-price">LBP 39,000</div>
+            </a>
         </div>
     </div>
     <div class="product-btn">
-        <button>View More</button>
+        <a href="/pages/product.php"><button>View More</button></a>
     </div>
 </div>
 <div class="wrapper justify-center">

@@ -25,7 +25,7 @@
                 <a href="/" class="nav_links">Home</a>
             </li>
             <li>
-                <a href="/" class="nav_links">Products</a>
+                <a href="/pages/product.php" class="nav_links">Products</a>
             </li>
             <li>
                 <a href="/" class="nav_links">About</a>
@@ -39,6 +39,6 @@
         </ul>
         <div class="header-action desktop">
             <i class="fa fa-user-o"></i>
-            <i class="far fa-heart"></i>
+            <a href="/pages/wishlist.php"><i class="far fa-heart"></i></a>
         </div>
     </nav>
