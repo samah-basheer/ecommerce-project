@@ -278,3 +278,17 @@ footer {
     text-align: center;
     background-color: #f9f9f9;
 }
+.wrapper-wishlist {
+    padding-top: 20px;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 20px;
+}
+.wrapper-wishlist .left {
+    flex: 10%
+}
+.wrapper-wishlist .right {
+    flex: 90%
+}
+.padding {
+    padding: 0 20px;
+}
