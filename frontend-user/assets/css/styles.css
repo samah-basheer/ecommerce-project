@@ -9,7 +9,7 @@ a {
     color: var(--secondary);
 }
 :root {
-    --primary: #efcad2;
+    --primary: #db8698;
     --secondary: #000000;
 }
 h2, h1 {
@@ -306,10 +306,11 @@ footer {
     margin-top: 30px;
     padding: 15px 25px;
     border: none;
-    border-radius: 7px;
-    font-size: 16px;
-    background-color: #efcad2;
-    color: #333;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: var(--primary);
+    color: #ffffff;
     cursor: pointer;
 }
 .container {
@@ -363,7 +364,7 @@ footer {
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: #db8698;
+    background-color: var(--primary);
     border-radius: 25px;
 }
 .form .input-field {
@@ -385,7 +386,7 @@ footer {
     transition: all 0.2s ease;
 }
 .input-field input:is(:focus, :valid) {
-    border-bottom-color: #db8698;
+    border-bottom-color: var(--primary);
 }
 .input-field i {
     position: absolute;
@@ -396,7 +397,7 @@ footer {
     transition: all 0.2s ease;
 }
 .input-field input:is(:focus, :valid)~i {
-    color: #db8698;
+    color: var(--primary);
 }
 .input-field i.icon {
     left: 0;
@@ -418,14 +419,14 @@ footer {
 }
 .checkbox-content input {
     margin: 0 8px -2px 4px;
-    accent-color: #db8698;
+    accent-color: var(--primary);
 }
 .form .text {
     color: #333;
     font-size: 14px;
 }
 .form a.text {
-    color: #db8698;
+    color: var(--primary);
     text-decoration: none;
 }
 .form a:hover {
@@ -441,12 +442,12 @@ footer {
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #db8698;
+    background-color: var(--primary);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .button input:hover {
-    background-color: #db8698;
+    background-color: var(--primary);
 }
 .form .login-signup {
     margin-top: 30px;
