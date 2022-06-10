@@ -363,7 +363,7 @@ footer {
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: var(--primary);
+    background-color: #db8698;
     border-radius: 25px;
 }
 .form .input-field {
@@ -385,7 +385,7 @@ footer {
     transition: all 0.2s ease;
 }
 .input-field input:is(:focus, :valid) {
-    border-bottom-color: var(--primary);
+    border-bottom-color: #db8698;
 }
 .input-field i {
     position: absolute;
@@ -396,7 +396,7 @@ footer {
     transition: all 0.2s ease;
 }
 .input-field input:is(:focus, :valid)~i {
-    color: var(--primary);
+    color: #db8698;
 }
 .input-field i.icon {
     left: 0;
@@ -418,14 +418,14 @@ footer {
 }
 .checkbox-content input {
     margin: 0 8px -2px 4px;
-    accent-color: var(--primary);
+    accent-color: #db8698;
 }
 .form .text {
     color: #333;
     font-size: 14px;
 }
 .form a.text {
-    color: var(--primary);
+    color: #db8698;
     text-decoration: none;
 }
 .form a:hover {
@@ -441,12 +441,12 @@ footer {
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: var(--primary);
+    background-color: #db8698;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .button input:hover {
-    background-color: var(--primary);
+    background-color: #db8698;
 }
 .form .login-signup {
     margin-top: 30px;

@@ -1,5 +1,6 @@
 const navToggle = document.querySelector(".navbar_toggle");
 const links = document.querySelector(".main_nav");
+const laravel_ip = 'http://127.0.0.1:8000/';
 
 navToggle.addEventListener('click', function(){
     links.classList.toggle("show_nav");
@@ -39,3 +40,35 @@ signUp.addEventListener("click", () => {
 login.addEventListener("click", () => {
     container.classList.remove("active");
 });
+
+// login api
+let login_button = document.getElementById("login-btn");
+if(login_button) {
+    login_button.addEventListener("click", async function(event)  {
+        event.preventDefault();
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        let data = new FormData();
+        data.append('email', email);
+        data.append('password', password);
+
+        let url = laravel_ip + 'api/v1/auth/login';
+
+        await axios({
+            method: 'POST',
+            url: url,
+            data: data,
+        })
+            .then(function (response) {
+                console.log(response.data.error);
+                // let status = document.getElementById('status');
+                // if(response.data['status']) {
+                //     localStorage.setItem('user_id', response.data['user_id']);
+                //     window.location.href = "http://groupproject/frontend/pages/home.php";
+                // } else {
+                //     status.innerHTML = response.data['message'];
+                // }
+            }).catch((error)=>error?.response?.data?.error);
+    });
+}

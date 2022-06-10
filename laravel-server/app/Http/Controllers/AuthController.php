@@ -38,18 +38,19 @@ class AuthController extends Controller
     public function login(Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string'
         ]);
         if($validator->fails()) {
-            return response()->json(
-                $validator->errors(), 422
-            );
+            return response()->json([
+                "status" => "Unauthorized",
+//                "error" => $validator->errors(),
+            ], 422);
         }
         if(!$token = auth()->attempt($validator->validated())) {
             return response()->json(
                 [
                     "error" => "Unauthorized"
-                ], 401
+                ], 200
             );
         }
         return $this->createNewToken($token);
