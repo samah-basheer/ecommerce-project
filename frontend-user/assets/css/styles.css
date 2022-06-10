@@ -78,6 +78,11 @@ img {
     color: var(--secondary);
     font-weight: 100;
 }
+@media only screen and (min-width : 993px) {
+    .about.wrapper.wrapper-content img {
+        padding: 20px 10%;
+    }
+}
 @media only screen and (max-width : 992px){
     .navbar {
         display: flex;
