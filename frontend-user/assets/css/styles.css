@@ -233,8 +233,11 @@ footer {
 .min-height {
     min-height: 100vh;
 }
-.latest-product.wrapper > div {
+.latest-product.wrapper > div, .all-product.wrapper > div {
     flex-wrap: wrap;
+}
+.all-product {
+    padding-bottom: 80px;
 }
 .single-product-detail .product-title h2 {
     border-bottom: 1px solid #e7e7e7;
@@ -294,4 +297,17 @@ footer {
 }
 .mb-1 {
     margin-bottom: 1rem;
+}
+.product-btn {
+    text-align: center;
+}
+.product-btn button {
+    margin-top: 30px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: #efcad2;
+    color: #333;
+    cursor: pointer;
 }

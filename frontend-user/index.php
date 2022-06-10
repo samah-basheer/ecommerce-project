@@ -44,20 +44,9 @@
             <div class="product-title">Micellar Water</div>
             <div class="product-price">LBP 39,000</div>
         </div>
-        <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/MICELLAR.png">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
-        </div>
-        <div class="single-product">
-            <div class="product-img">
-                <img src="./assets/img/MICELLAR.png">
-            </div>
-            <div class="product-title">Micellar Water</div>
-            <div class="product-price">LBP 39,000</div>
-        </div>
+    </div>
+    <div class="product-btn">
+        <button>View More</button>
     </div>
 </div>
 <div class="wrapper justify-center">
