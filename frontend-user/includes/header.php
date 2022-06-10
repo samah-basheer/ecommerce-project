@@ -16,8 +16,8 @@
             </button>
             <a href="/" class="logo">E-commerce Site</a>
             <div class="header-action mobile">
-                <i class="fa fa-user-o" style="color:red;"></i>
-                <i class="far fa-heart" style="color:red;"></i>
+                <i class="fa fa-user-o"></i>
+                <i class="far fa-heart"></i>
             </div>
         </div>
         <ul class="main_nav">
@@ -38,7 +38,7 @@
             </li>
         </ul>
         <div class="header-action desktop">
-            <i class="fa fa-user-o" style="color:red;"></i>
-            <i class="far fa-heart" style="color:red;"></i>
+            <i class="fa fa-user-o"></i>
+            <i class="far fa-heart"></i>
         </div>
     </nav>

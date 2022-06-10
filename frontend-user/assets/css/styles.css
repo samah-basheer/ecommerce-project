@@ -17,6 +17,7 @@ a {
     padding-top: 2%;
     padding-bottom: 2%;
     font-size: 20px;
+    border-bottom: 1px solid #e6e6e6;
 }
 .navbar_toggle {
     margin-left: 5%;
@@ -62,6 +63,9 @@ a {
 }
 .header-action.mobile {
     display: none;
+}
+.header-action i {
+    padding-right: 10px;
 }
 .main_nav li a {
     color: var(--secondary);
@@ -119,6 +123,9 @@ a {
         justify-content: space-between;
         margin-right: 2%;
         width: auto;
+    }
+    .header-action i {
+        color: #ffffff;
     }
     .header-action.mobile {
         display: block;
