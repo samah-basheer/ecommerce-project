@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/css/styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/82f797382f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
     <title>E-commerce Site</title>
 </head>
 <body>
