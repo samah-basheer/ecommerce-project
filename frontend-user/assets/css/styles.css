@@ -292,3 +292,6 @@ footer {
 .padding {
     padding: 0 20px;
 }
+.mb-1 {
+    margin-bottom: 1rem;
+}

@@ -3,7 +3,7 @@
         <h1>Wishlist</h1>
     </div>
     <div class="wrapper min-height">
-        <h2 class="title padding">My Wishlist</h2>
+        <h2 class="title padding mb-1">My Wishlist</h2>
         <div class="wrapper-content wrapper-wishlist">
             <div class="left">
                 <i class="fa fa-close"></i>
