@@ -22,19 +22,19 @@
         </div>
         <ul class="main_nav">
             <li>
-                <a href="#" class="nav_links">Home</a>
+                <a href="/" class="nav_links">Home</a>
             </li>
             <li>
-                <a href="#" class="nav_links">Products</a>
+                <a href="/" class="nav_links">Products</a>
             </li>
             <li>
-                <a href="#" class="nav_links">About</a>
+                <a href="/" class="nav_links">About</a>
             </li>
             <li>
-                <a href="#" class="nav_links">Contact</a>
+                <a href="/" class="nav_links">Contact</a>
             </li>
             <li>
-                <a href="#" class="nav_links">Blog</a>
+                <a href="/" class="nav_links">Blog</a>
             </li>
         </ul>
         <div class="header-action desktop">

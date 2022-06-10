@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -9,6 +10,13 @@ a {
 :root {
     --primary: #efcad2;
     --secondary: #000000;
+}
+h2 {
+    font-weight: 200;
+}
+img {
+    max-width: 100%;
+    width: 100%;
 }
 .navbar {
     display: flex;
@@ -153,8 +161,8 @@ a {
     padding-top: 80px;
     padding-bottom: 20px;
 }
-.wrapper > div {
-    flex: 1 1;
+.wrapper-content > div {
+    flex: 50%;
     padding: 0 20px;
     flex-wrap: wrap;
 }
@@ -165,7 +173,7 @@ a {
 .spacer {
     height: 30px;
 }
-.about-content {
+.about-content, .description p {
     text-align: justify;
     line-height: 24px;
 }
@@ -212,4 +220,43 @@ footer {
 }
 .text-center {
     text-align: center;
+}
+.single-product-detail img {
+    padding: 12px 15%;
+    box-sizing: border-box;
+}
+.min-height {
+    min-height: 100vh;
+}
+.latest-product.wrapper > div {
+    flex-wrap: wrap;
+}
+.single-product-detail .product-title h2 {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 18px 0;
+    margin-bottom: 18px;
+}
+.single-product-detail .price {
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    padding-top: 28px;
+}
+.single-product-detail .title {
+    font-size: 32px;
+}
+.single-product-detail .wishlist, .description p {
+    padding-top: 18px;
+}
+.single-product-detail ul {
+    list-style: none;
+    font-weight: 100;
+}
+.single-product-detail ul li::before {
+    content: "\2022";
+    color: var(--primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
