@@ -1,10 +1,13 @@
 <?php include_once '../includes/header.php' ?>
+    <div class="page-title">
+        <h1>Lips</h1>
+    </div>
     <div class="wrapper min-height">
         <div class="single-product-detail wrapper-content">
             <div class="product-img">
                 <img src="../assets/img/LIPSTICK-TOFFEE.jpg">
             </div>
-            <div class="">
+            <div>
                 <div class="product-title">
                     <h2 class="title">Liquid Lipstick</h2>
                     <ul>
