@@ -10,7 +10,8 @@ const container = document.querySelector(".container"),
     pwShowHide = document.querySelectorAll(".showHidePw"),
     pwFields = document.querySelectorAll(".password"),
     signUp = document.querySelector(".signup-link"),
-    login = document.querySelector(".login-link");
+    login = document.querySelector(".login-link"),
+    logout = document.querySelector("#logout");
 
 //   js code to show/hide password and change icon
 pwShowHide.forEach((eyeIcon) => {
@@ -34,12 +35,16 @@ pwShowHide.forEach((eyeIcon) => {
 });
 
 // js code to appear signup and login form
-signUp.addEventListener("click", () => {
-    container.classList.add("active");
-});
-login.addEventListener("click", () => {
-    container.classList.remove("active");
-});
+if(signUp) {
+    signUp.addEventListener("click", () => {
+        container.classList.add("active");
+    });
+}
+if(login) {
+    login.addEventListener("click", () => {
+        container.classList.remove("active");
+    });
+}
 
 // login api
 let login_button = document.getElementById("login-btn");
@@ -65,8 +70,58 @@ if(login_button) {
                     console.log('ghalattt');
                 } else {
                     localStorage.setItem('access_token', response.data.access_token);
-                    console.log(response.data.access_token);
+                    window.location.href = "http://electronjs-laravel/pages/profile.php";
                 }
             }).catch((error)=>error?.response?.data?.error);
     });
+}
+// logout
+if(logout) {
+    logout.addEventListener("click", async function(event)  {
+        event.preventDefault();
+
+        let url = laravel_ip + 'api/v1/auth/logout';
+        await axios({
+            method: 'POST',
+            url: url,
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            }
+        })
+            .then(function (response) {
+                if(response.data.status == "Success") {
+                    localStorage.removeItem('access_token');
+                    window.location.href = "http://electronjs-laravel/pages/account.php";
+                }
+                console.log(response);
+            }).catch((error)=>error?.response?.data?.error);
+    });
+}
+// access links
+if(localStorage.getItem('access_token')) {
+    if(window.location.href == 'http://electronjs-laravel/pages/account.php') {
+        window.location.href = "http://electronjs-laravel/pages/profile.php";
+    }
+} else {
+    if(window.location.href == 'http://electronjs-laravel/pages/profile.php') {
+        window.location.href = "http://electronjs-laravel/pages/account.php";
+    }
+}
+
+// profile
+if(window.location.href == 'http://electronjs-laravel/pages/profile.php') {
+    let user_name = document.getElementById('user-name');
+    let not_user = document.getElementById('not-user');
+    let url = laravel_ip + 'api/v1/auth/profile';
+    axios({
+        method: 'GET',
+        url: url,
+        headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('access_token')
+        }
+    })
+        .then(function (response) {
+            user_name.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
+            not_user.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
+        }).catch((error)=>error?.response?.data?.error);
 }

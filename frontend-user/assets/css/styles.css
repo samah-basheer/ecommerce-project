@@ -460,3 +460,6 @@ footer {
     background-color: #f8f8f8;
     padding-top: 20px;
 }
+.profile-logout {
+    color: var(--primary);
+}
