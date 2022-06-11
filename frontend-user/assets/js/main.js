@@ -281,10 +281,53 @@ if(window.location.href.includes('single-product')) {
 
 // wishlist button
 let wishlist = document.getElementById('wishlist');
+let checked = false;
 wishlist.addEventListener("click", function(event)  {
     if(localStorage.getItem('user_id')) {
-        console.log("enta logged in")
+        let href = window.location.href;
+        let product_id = href.split('?id=').at(-1);
+        let user_id = localStorage.getItem('user_id');
+        if(checked == false) {
+            let data = new FormData();
+            data.append('product_id', product_id);
+            data.append('user_id', user_id);
+
+            let url = laravel_ip + 'api/v1/wishlist/create';
+            checked = true;
+
+            axios({
+                method: 'POST',
+                url: url,
+                data: data,
+            })
+                .then(function (response) {
+                    if(response.data.status == "Success") {
+
+                    }
+                }).catch((error)=>error?.response?.data?.error);
+        } else {
+            var wishlist_id;
+            let request_id_url = laravel_ip + 'api/v1/wishlist/request_id/' + user_id + '/' + product_id;
+            axios({
+                method: 'GET',
+                url: request_id_url
+            })
+                .then(function (response) {
+                    wishlist_id = response.data.wishlist[0].id;
+
+                    let url = laravel_ip + 'api/v1/wishlist/delete/' + wishlist_id;
+                    axios({
+                        method: 'DELETE',
+                        url: url,
+                    })
+                        .then(function (response) {
+
+                        }).catch((error)=>error?.response?.data?.error);
+
+                }).catch((error)=>error?.response?.data?.error);
+            checked = false;
+        }
     } else {
-        console.log("please login first")
+        window.location.href = "http://electronjs-laravel/pages/account.php";
     }
 });

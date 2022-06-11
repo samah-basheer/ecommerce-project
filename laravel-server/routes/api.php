@@ -48,6 +48,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/create', [WishlistController::class, 'create']);
         Route::get('/edit/{id}', [WishlistController::class, 'edit']);
         Route::post('/update/{id}', [WishlistController::class, 'update']);
+        Route::get('/request_id/{user_id}/{product_id}', [WishlistController::class, 'requestID']);
         Route::delete('/delete/{id}', [WishlistController::class, 'destroy']);
     });
 

@@ -46,4 +46,11 @@ class WishlistController extends Controller
             "status" => "Success"
         ], 200);
     }
+    public function requestID($user_id, $product_id) {
+        $wishlist = Wishlist::where('user_id', $user_id)->where('product_id', $product_id)->get();
+        return response()->json([
+            "status" => "Success",
+            "wishlist" => $wishlist
+        ], 200);
+    }
 }
