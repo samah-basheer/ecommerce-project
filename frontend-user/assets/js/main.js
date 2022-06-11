@@ -93,7 +93,6 @@ if(logout) {
                     localStorage.removeItem('access_token');
                     window.location.href = "http://electronjs-laravel/pages/account.php";
                 }
-                console.log(response);
             }).catch((error)=>error?.response?.data?.error);
     });
 }
@@ -123,5 +122,47 @@ if(window.location.href == 'http://electronjs-laravel/pages/profile.php') {
         .then(function (response) {
             user_name.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
             not_user.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
+        }).catch((error)=>error?.response?.data?.error);
+}
+
+function createElementWithClass(type, className) {
+    const element = document.createElement(type);
+    element.className = className
+    return element;
+}
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+// product loop
+let home_products = document.getElementById("home-product-loop");
+if(home_products) {
+    let element = '';
+    let a, product_img, img, product_title, product_price;
+    let url = laravel_ip + 'api/v1/product';
+    axios({
+        method: 'GET',
+        url: url,
+    })
+        .then(function (response) {
+            for (let i = 0; i < response.data.products.length; i++) {
+                if(i == 4) {
+                    break;
+                }
+                element = createElementWithClass('div', 'single-product');
+                a = document.createElement('a');
+                a.href = "/";
+                element.appendChild(a);
+                product_img = a.appendChild(createElementWithClass('div', 'product-img'));
+                img = document.createElement('img');
+                img.src = "/assets/img/" + response.data.products[i]['pic_url'];
+                product_img.appendChild(img);
+                product_title = a.appendChild(createElementWithClass('div', 'product-title'));
+                product_title.textContent = response.data.products[i]['name'];
+                product_price = a.appendChild(createElementWithClass('div', 'product-price'));
+                product_price.textContent = 'LBP ' + response.data.products[i]['price'];
+                var x = document.getElementById('hidden');
+                insertAfter(x,element);
+            }
         }).catch((error)=>error?.response?.data?.error);
 }
