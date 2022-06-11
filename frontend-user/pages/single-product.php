@@ -17,7 +17,7 @@
                     </ul>
                     <p class="price">LBP <span id="price"></span></p>
                     <p class="wishlist">
-                        <span class="wishlist-content">
+                        <span class="wishlist-content" id="wishlist">
                             <i class="far fa-heart" aria-hidden="true"></i>
                             <span>Add to wishlist</span>
                         </span>
