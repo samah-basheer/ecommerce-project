@@ -282,59 +282,61 @@ if(window.location.href.includes('single-product')) {
 // wishlist button
 let wishlist = document.getElementById('wishlist');
 let checked = false;
-wishlist.addEventListener("click", function(event)  {
-    if(localStorage.getItem('user_id')) {
-        let unchecked_item = document.getElementById('unchecked_item');
-        let checked_item = document.getElementById('checked_item');
-        let href = window.location.href;
-        let product_id = href.split('?id=').at(-1);
-        let user_id = localStorage.getItem('user_id');
-        if(checked == false) {
-            let data = new FormData();
-            data.append('product_id', product_id);
-            data.append('user_id', user_id);
+if(wishlist) {
+    wishlist.addEventListener("click", function(event)  {
+        if(localStorage.getItem('user_id')) {
+            let unchecked_item = document.getElementById('unchecked_item');
+            let checked_item = document.getElementById('checked_item');
+            let href = window.location.href;
+            let product_id = href.split('?id=').at(-1);
+            let user_id = localStorage.getItem('user_id');
+            if(checked == false) {
+                let data = new FormData();
+                data.append('product_id', product_id);
+                data.append('user_id', user_id);
 
-            let url = laravel_ip + 'api/v1/wishlist/create';
-            checked = true;
+                let url = laravel_ip + 'api/v1/wishlist/create';
+                checked = true;
 
-            axios({
-                method: 'POST',
-                url: url,
-                data: data,
-            })
-                .then(function (response) {
-                    if(response.data.status == "Success") {
-                        unchecked_item.style.display = "none";
-                        checked_item.style.display = "inline";
-                    }
-                }).catch((error)=>error?.response?.data?.error);
+                axios({
+                    method: 'POST',
+                    url: url,
+                    data: data,
+                })
+                    .then(function (response) {
+                        if(response.data.status == "Success") {
+                            unchecked_item.style.display = "none";
+                            checked_item.style.display = "inline";
+                        }
+                    }).catch((error)=>error?.response?.data?.error);
+            } else {
+                var wishlist_id;
+                let request_id_url = laravel_ip + 'api/v1/wishlist/request_id/' + user_id + '/' + product_id;
+                axios({
+                    method: 'GET',
+                    url: request_id_url
+                })
+                    .then(function (response) {
+                        wishlist_id = response.data.wishlist[0].id;
+
+                        let url = laravel_ip + 'api/v1/wishlist/delete/' + wishlist_id;
+                        axios({
+                            method: 'DELETE',
+                            url: url,
+                        })
+                            .then(function (response) {
+                                unchecked_item.style.display = "inline";
+                                checked_item.style.display = "none";
+                            }).catch((error)=>error?.response?.data?.error);
+
+                    }).catch((error)=>error?.response?.data?.error);
+                checked = false;
+            }
         } else {
-            var wishlist_id;
-            let request_id_url = laravel_ip + 'api/v1/wishlist/request_id/' + user_id + '/' + product_id;
-            axios({
-                method: 'GET',
-                url: request_id_url
-            })
-                .then(function (response) {
-                    wishlist_id = response.data.wishlist[0].id;
-
-                    let url = laravel_ip + 'api/v1/wishlist/delete/' + wishlist_id;
-                    axios({
-                        method: 'DELETE',
-                        url: url,
-                    })
-                        .then(function (response) {
-                            unchecked_item.style.display = "inline";
-                            checked_item.style.display = "none";
-                        }).catch((error)=>error?.response?.data?.error);
-
-                }).catch((error)=>error?.response?.data?.error);
-            checked = false;
+            window.location.href = "http://electronjs-laravel/pages/account.php";
         }
-    } else {
-        window.location.href = "http://electronjs-laravel/pages/account.php";
-    }
-});
+    });
+}
 
 // handle wishlist on page load
 if(window.location.href.includes('single-product')) {
@@ -359,4 +361,8 @@ if(window.location.href.includes('single-product')) {
                 checked_item.style.display = "none";
             }
         }).catch((error)=>error?.response?.data?.error);
+}
+
+if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
+
 }

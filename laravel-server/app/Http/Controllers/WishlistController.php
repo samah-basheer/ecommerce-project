@@ -53,4 +53,13 @@ class WishlistController extends Controller
             "wishlist" => $wishlist
         ], 200);
     }
+    public function requestItems($id) {
+        $wishlist = Wishlist::where('user_id', $id)
+            ->with('user', 'product')
+            ->get();
+        return response()->json([
+            "status" => "Success",
+            "wishlist" => $wishlist
+        ], 200);
+    }
 }
