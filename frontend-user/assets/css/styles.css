@@ -62,7 +62,7 @@ img {
     list-style: none;
 }
 .main_nav li:hover a {
-    color: gray
+    color: var(--primary);
 }
 .main_nav li {
     display: inline;
@@ -462,5 +462,14 @@ footer {
     padding-top: 20px;
 }
 .profile-logout {
+    color: var(--primary);
+}
+.wishlist-content {
+    cursor: pointer;
+}
+.wishlist-content:hover {
+    color: var(--primary);
+}
+i:hover {
     color: var(--primary);
 }
