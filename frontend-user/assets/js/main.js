@@ -203,7 +203,7 @@ if(home_products) {
                 }
                 element = createElementWithClass('div', 'single-product');
                 a = document.createElement('a');
-                a.href = "/";
+                a.href = "/pages/single-product.php?id="+response.data.products[i]['id'];
                 element.appendChild(a);
                 product_img = a.appendChild(createElementWithClass('div', 'product-img'));
                 img = document.createElement('img');
