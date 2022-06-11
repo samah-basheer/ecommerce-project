@@ -186,7 +186,7 @@ if(window.location.href == 'http://electronjs-laravel/pages/product.php') {
             for (let i = 0; i < response.data.products.length; i++) {
                 element = createElementWithClass('div', 'single-product');
                 a = document.createElement('a');
-                a.href = "/";
+                a.href = "/pages/single-product.php?id="+response.data.products[i]['id'];
                 element.appendChild(a);
                 product_img = a.appendChild(createElementWithClass('div', 'product-img'));
                 img = document.createElement('img');
