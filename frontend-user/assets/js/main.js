@@ -75,6 +75,53 @@ if(login_button) {
             }).catch((error)=>error?.response?.data?.error);
     });
 }
+
+// Register
+let signup_button = document.getElementById("signup_button");
+if(signup_button) {
+    signup_button.addEventListener("click", function(event){
+        event.preventDefault();
+        let first_name = document.getElementById("first_name").value;
+        let last_name = document.getElementById("last_name").value;
+        let email = document.getElementById("user_email").value;
+        let password = document.getElementById("user_password").value;
+
+        let data = new FormData();
+        data.append('first_name', first_name);
+        data.append('last_name', last_name);
+        data.append('email', email);
+        data.append('password', password);
+
+        let url = laravel_ip + 'api/v1/auth/register';
+
+        axios({
+            method: 'POST',
+            url: url,
+            data: data
+        })
+            .then(function (response) {
+                if(response.data.status == "Success") {
+
+                    let data = new FormData();
+                    data.append('email', email);
+                    data.append('password', password);
+
+                    let url = laravel_ip + 'api/v1/auth/login';
+                    axios({
+                        method: 'POST',
+                        url: url,
+                        data: data,
+                    })
+                        .then(function (response) {
+                            localStorage.setItem('access_token', response.data.access_token);
+                            window.location.href = "http://electronjs-laravel";
+                        }).catch((error)=>error?.response?.data?.error);
+                }
+            });
+
+    });
+}
+
 // logout
 if(logout) {
     logout.addEventListener("click", async function(event)  {
