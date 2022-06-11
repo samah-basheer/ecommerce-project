@@ -284,6 +284,8 @@ let wishlist = document.getElementById('wishlist');
 let checked = false;
 wishlist.addEventListener("click", function(event)  {
     if(localStorage.getItem('user_id')) {
+        let unchecked_item = document.getElementById('unchecked_item');
+        let checked_item = document.getElementById('checked_item');
         let href = window.location.href;
         let product_id = href.split('?id=').at(-1);
         let user_id = localStorage.getItem('user_id');
@@ -302,7 +304,8 @@ wishlist.addEventListener("click", function(event)  {
             })
                 .then(function (response) {
                     if(response.data.status == "Success") {
-
+                        unchecked_item.style.display = "none";
+                        checked_item.style.display = "inline";
                     }
                 }).catch((error)=>error?.response?.data?.error);
         } else {
@@ -321,7 +324,8 @@ wishlist.addEventListener("click", function(event)  {
                         url: url,
                     })
                         .then(function (response) {
-
+                            unchecked_item.style.display = "inline";
+                            checked_item.style.display = "none";
                         }).catch((error)=>error?.response?.data?.error);
 
                 }).catch((error)=>error?.response?.data?.error);

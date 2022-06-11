@@ -473,3 +473,7 @@ footer {
 i:hover {
     color: var(--primary);
 }
+.wishlist i.fa.fa-heart {
+    display: none;
+    color: var(--primary);
+}

@@ -18,7 +18,8 @@
                     <p class="price">LBP <span id="price"></span></p>
                     <p class="wishlist">
                         <span class="wishlist-content" id="wishlist">
-                            <i class="far fa-heart" aria-hidden="true"></i>
+                            <i class="far fa-heart" aria-hidden="true" id="unchecked_item"></i>
+                            <i class="fa fa-heart" id="checked_item"></i>
                             <span>Add to wishlist</span>
                         </span>
                     </p>
