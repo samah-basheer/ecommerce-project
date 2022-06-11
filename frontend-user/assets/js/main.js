@@ -69,6 +69,7 @@ if(login_button) {
                 if(response.data.error == "Unauthorized") {
                     console.log('ghalattt');
                 } else {
+                    localStorage.setItem('user_id', response.data.user.id);
                     localStorage.setItem('access_token', response.data.access_token);
                     window.location.href = "http://electronjs-laravel/pages/profile.php";
                 }
@@ -113,6 +114,7 @@ if(signup_button) {
                         data: data,
                     })
                         .then(function (response) {
+                            localStorage.setItem('user_id', response.data.user.id);
                             localStorage.setItem('access_token', response.data.access_token);
                             window.location.href = "http://electronjs-laravel";
                         }).catch((error)=>error?.response?.data?.error);
@@ -138,6 +140,7 @@ if(logout) {
             .then(function (response) {
                 if(response.data.status == "Success") {
                     localStorage.removeItem('access_token');
+                    localStorage.removeItem('user_id');
                     window.location.href = "http://electronjs-laravel/pages/account.php";
                 }
             }).catch((error)=>error?.response?.data?.error);
@@ -276,3 +279,4 @@ if(window.location.href.includes('single-product')) {
             console.log(response.data.product)
         }).catch((error)=>error?.response?.data?.error);
 }
+console.log(localStorage.getItem('user_id'));
