@@ -279,4 +279,3 @@ if(window.location.href.includes('single-product')) {
             console.log(response.data.product)
         }).catch((error)=>error?.response?.data?.error);
 }
-console.log(localStorage.getItem('user_id'));
