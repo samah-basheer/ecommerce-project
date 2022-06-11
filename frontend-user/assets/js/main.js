@@ -248,3 +248,31 @@ if(window.location.href == 'http://electronjs-laravel/pages/product.php') {
             }
         }).catch((error)=>error?.response?.data?.error);
 }
+
+// single product page
+if(window.location.href.includes('single-product')) {
+    let img = document.getElementById('product-img');
+    let title = document.getElementById('title');
+    let stock = document.getElementById('stock');
+    let sku = document.getElementById('sku');
+    let price = document.getElementById('price');
+    let description = document.getElementById('description');
+    let category = document.getElementById('category');
+    let href = window.location.href;
+    let id = href.split('?id=').at(-1);
+    let url = laravel_ip + 'api/v1/product/edit/' + id;
+    axios({
+        method: 'GET',
+        url: url
+    })
+        .then(function (response) {
+            img.src = "../assets/img/" + response.data.product.pic_url;
+            title.textContent = response.data.product.name;
+            stock.textContent = response.data.product.inventory.quantity;
+            sku.textContent = response.data.product.sku;
+            category.textContent = response.data.product.category.name;
+            description.textContent = response.data.product.description;
+            price.textContent = response.data.product.price.toLocaleString();
+            console.log(response.data.product)
+        }).catch((error)=>error?.response?.data?.error);
+}

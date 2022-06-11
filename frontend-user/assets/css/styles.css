@@ -187,6 +187,7 @@ img {
     padding-top: 20px;
     position: relative;
     font-weight: 400;
+    text-transform: capitalize;
 }
 p {
     font-weight: 100;
