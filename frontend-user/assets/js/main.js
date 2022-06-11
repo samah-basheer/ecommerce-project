@@ -363,6 +363,34 @@ if(window.location.href.includes('single-product')) {
         }).catch((error)=>error?.response?.data?.error);
 }
 
+// wishlist page
 if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
-
+    let user_id = localStorage.getItem('user_id');
+    let url = laravel_ip + 'api/v1/wishlist/request_items/' + user_id;
+    let element = '';
+    let left, img, right, h2, p;
+    axios({
+        method: 'GET',
+        url: url
+    })
+        .then(function (response) {
+            for (let i = 0; i < response.data.wishlist.length; i++) {
+                element = createElementWithClass('div', 'wrapper-content wrapper-wishlist');
+                left = element.appendChild(createElementWithClass('div', 'left'));
+                left.appendChild(createElementWithClass('i', 'fa fa-close'));
+                img = document.createElement('img');
+                img.src = "../assets/img/" + response.data.wishlist[i].product.pic_url;
+                left.appendChild(img);
+                right = element.appendChild(createElementWithClass('div', 'right'));
+                h2 = right.appendChild(document.createElement('h2'));
+                h2.textContent = response.data.wishlist[i].product.name;
+                p = right.appendChild(document.createElement('p'));
+                p.textContent = 'LBP ' + response.data.wishlist[i].product.price;
+                var x = document.getElementById('hidden-wishlist');
+                insertAfter(x,element);
+                console.log(element)
+                console.log(response.data.wishlist[i].id);
+            }
+            console.log(response.data.wishlist)
+        }).catch((error)=>error?.response?.data?.error);
 }
