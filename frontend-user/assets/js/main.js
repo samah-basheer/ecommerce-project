@@ -173,6 +173,7 @@ if(window.location.href == 'http://electronjs-laravel/pages/profile.php') {
             if(response.data.status == "token_expired") {
                 window.location.href == 'http://electronjs-laravel/pages/account.php';
                 localStorage.removeItem('access_token');
+                localStorage.removeItem('user_id');
             } else {
                 user_name.innerHTML = response.data.status.first_name + ' ' + response.data.status.last_name;
                 not_user.innerHTML = response.data.status.first_name + ' ' + response.data.status.last_name;
