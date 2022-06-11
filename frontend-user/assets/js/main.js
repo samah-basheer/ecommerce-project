@@ -61,14 +61,12 @@ if(login_button) {
             data: data,
         })
             .then(function (response) {
-                console.log(response.data.error);
-                // let status = document.getElementById('status');
-                // if(response.data['status']) {
-                //     localStorage.setItem('user_id', response.data['user_id']);
-                //     window.location.href = "http://groupproject/frontend/pages/home.php";
-                // } else {
-                //     status.innerHTML = response.data['message'];
-                // }
+                if(response.data.error == "Unauthorized") {
+                    console.log('ghalattt');
+                } else {
+                    localStorage.setItem('access_token', response.data.access_token);
+                    console.log(response.data.access_token);
+                }
             }).catch((error)=>error?.response?.data?.error);
     });
 }
