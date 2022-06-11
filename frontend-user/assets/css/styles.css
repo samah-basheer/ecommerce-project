@@ -477,3 +477,6 @@ i:hover {
     display: none;
     color: var(--primary);
 }
+.left .fa.fa-close {
+    cursor: pointer;
+}
