@@ -335,3 +335,28 @@ wishlist.addEventListener("click", function(event)  {
         window.location.href = "http://electronjs-laravel/pages/account.php";
     }
 });
+
+// handle wishlist on page load
+if(window.location.href.includes('single-product')) {
+    let unchecked_item = document.getElementById('unchecked_item');
+    let checked_item = document.getElementById('checked_item');
+    let href = window.location.href;
+    let product_id = href.split('?id=').at(-1);
+    let user_id = localStorage.getItem('user_id');
+    let request_id_url = laravel_ip + 'api/v1/wishlist/request_id/' + user_id + '/' + product_id;
+    axios({
+        method: 'GET',
+        url: request_id_url
+    })
+        .then(function (response) {
+            if(response.data.wishlist.length > 0) {
+                checked = true;
+                unchecked_item.style.display = "none";
+                checked_item.style.display = "inline";
+            } else {
+                checked = false;
+                unchecked_item.style.display = "inline";
+                checked_item.style.display = "none";
+            }
+        }).catch((error)=>error?.response?.data?.error);
+}
