@@ -382,7 +382,11 @@ if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
                 input = left.appendChild(document.createElement('input'));
                 input.type = "hidden";
                 input.id = response.data.wishlist[i].id;
-                icon = left.appendChild(createElementWithClass('i', 'fa fa-close'));
+                icon = createElementWithClass('i', 'fa fa-close');
+                icon.onclick = function () {
+                    this.icon = delete_wishlist_item(response.data.wishlist[i].id);
+                };
+                left.appendChild(icon);
                 img = document.createElement('img');
                 img.src = "../assets/img/" + response.data.wishlist[i].product.pic_url;
                 left.appendChild(img);
