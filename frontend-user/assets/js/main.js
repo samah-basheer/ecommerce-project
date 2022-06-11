@@ -120,8 +120,13 @@ if(window.location.href == 'http://electronjs-laravel/pages/profile.php') {
         }
     })
         .then(function (response) {
-            user_name.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
-            not_user.innerHTML = response.data[0].first_name + ' ' + response.data[0].last_name;
+            if(response.data.status == "token_expired") {
+                window.location.href == 'http://electronjs-laravel/pages/account.php';
+                localStorage.removeItem('access_token');
+            } else {
+                user_name.innerHTML = response.data.status.first_name + ' ' + response.data.status.last_name;
+                not_user.innerHTML = response.data.status.first_name + ' ' + response.data.status.last_name;
+            }
         }).catch((error)=>error?.response?.data?.error);
 }
 

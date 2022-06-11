@@ -64,8 +64,14 @@ class AuthController extends Controller
         ]);
     }
     public function profile() {
+        $auth_user = auth()->user();
+        if($auth_user) {
+            $response = $auth_user;
+        } else {
+            $response = "token_expired";
+        }
         return response()->json([
-            auth()->user()
+            "status" => $response
         ]);
     }
     public function logout() {
