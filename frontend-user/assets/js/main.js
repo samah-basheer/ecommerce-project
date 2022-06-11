@@ -171,3 +171,33 @@ if(home_products) {
             }
         }).catch((error)=>error?.response?.data?.error);
 }
+
+//product loop page
+if(window.location.href == 'http://electronjs-laravel/pages/product.php') {
+    let home_products = document.getElementById("product-loop");
+    let element = '';
+    let a, product_img, img, product_title, product_price;
+    let url = laravel_ip + 'api/v1/product';
+    axios({
+        method: 'GET',
+        url: url,
+    })
+        .then(function (response) {
+            for (let i = 0; i < response.data.products.length; i++) {
+                element = createElementWithClass('div', 'single-product');
+                a = document.createElement('a');
+                a.href = "/";
+                element.appendChild(a);
+                product_img = a.appendChild(createElementWithClass('div', 'product-img'));
+                img = document.createElement('img');
+                img.src = "/assets/img/" + response.data.products[i]['pic_url'];
+                product_img.appendChild(img);
+                product_title = a.appendChild(createElementWithClass('div', 'product-title'));
+                product_title.textContent = response.data.products[i]['name'];
+                product_price = a.appendChild(createElementWithClass('div', 'product-price'));
+                product_price.textContent = 'LBP ' + response.data.products[i]['price'];
+                var x = document.getElementById('product-hidden');
+                insertAfter(x,element);
+            }
+        }).catch((error)=>error?.response?.data?.error);
+}
