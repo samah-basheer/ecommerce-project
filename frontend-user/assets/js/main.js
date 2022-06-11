@@ -369,16 +369,20 @@ if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
     let user_id = localStorage.getItem('user_id');
     let url = laravel_ip + 'api/v1/wishlist/request_items/' + user_id;
     let element = '';
-    let left, img, right, h2, p;
+    let left, img, right, h2, p, input, icon;
     axios({
         method: 'GET',
         url: url
     })
         .then(function (response) {
+            console.log(response)
             for (let i = 0; i < response.data.wishlist.length; i++) {
                 element = createElementWithClass('div', 'wrapper-content wrapper-wishlist');
                 left = element.appendChild(createElementWithClass('div', 'left'));
-                left.appendChild(createElementWithClass('i', 'fa fa-close'));
+                input = left.appendChild(document.createElement('input'));
+                input.type = "hidden";
+                input.id = response.data.wishlist[i].id;
+                icon = left.appendChild(createElementWithClass('i', 'fa fa-close'));
                 img = document.createElement('img');
                 img.src = "../assets/img/" + response.data.wishlist[i].product.pic_url;
                 left.appendChild(img);
@@ -389,9 +393,20 @@ if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
                 p.textContent = 'LBP ' + response.data.wishlist[i].product.price;
                 var x = document.getElementById('hidden-wishlist');
                 insertAfter(x,element);
-                console.log(element)
                 console.log(response.data.wishlist[i].id);
             }
             console.log(response.data.wishlist)
+        }).catch((error)=>error?.response?.data?.error);
+}
+
+// delete wishlist item
+function delete_wishlist_item(wishlist_id) {
+    let url = laravel_ip + 'api/v1/wishlist/delete/' + wishlist_id;
+    axios({
+        method: 'DELETE',
+        url: url,
+    })
+        .then(function (response) {
+            document. location. reload();
         }).catch((error)=>error?.response?.data?.error);
 }
