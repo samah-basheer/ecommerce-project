@@ -276,6 +276,15 @@ if(window.location.href.includes('single-product')) {
             category.textContent = response.data.product.category.name;
             description.textContent = response.data.product.description;
             price.textContent = response.data.product.price.toLocaleString();
-            console.log(response.data.product)
         }).catch((error)=>error?.response?.data?.error);
 }
+
+// wishlist button
+let wishlist = document.getElementById('wishlist');
+wishlist.addEventListener("click", function(event)  {
+    if(localStorage.getItem('user_id')) {
+        console.log("enta logged in")
+    } else {
+        console.log("please login first")
+    }
+});
