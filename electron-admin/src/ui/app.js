@@ -87,7 +87,7 @@ add_product.addEventListener("click", function(event){
     let price = document.getElementById("prod_price").value;
     let category = document.getElementById("select_category").value;
     let inventory = document.getElementById("prod_inventory").value;
-    let pic_url = "522-prom-night.jpg";
+    let pic_url = document.getElementById("prod_img").files[0];
 
     let data = new FormData();
     data.append('name', prod_name);
@@ -113,6 +113,7 @@ add_product.addEventListener("click", function(event){
                 document.getElementById("prod_price").value = '';
                 document.getElementById("select_category").value = '';
                 document.getElementById("prod_inventory").value = '';
+                document.getElementById("prod_img").value = '';
                 status.innerHTML = response.data.status;
                 status.style.color = "green";
             }
