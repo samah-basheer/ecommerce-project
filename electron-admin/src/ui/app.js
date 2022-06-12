@@ -46,3 +46,25 @@ add_category_btn.addEventListener("click", function(event){
             }
         }).catch((error)=>error?.response?.data?.error);
 });
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+add_prod.addEventListener("click", function(event){
+    event.preventDefault();
+
+    let url = laravel_ip + 'api/v1/category';
+
+    axios({
+        method: 'GET',
+        url: url
+    })
+        .then(function (response) {
+            if(response.data.status == "Success") {
+                for(let i = 0; i < response.data.categories.length; i++) {
+                    console.log(response.data.categories[i]);
+                }
+            }
+        }).catch((error)=>error?.response?.data?.error);
+});
