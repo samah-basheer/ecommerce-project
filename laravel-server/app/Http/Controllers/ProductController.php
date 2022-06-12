@@ -28,7 +28,11 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->category_id = $request->category_id;
         $product->inventory_id = $inventory_id;
-        $product->pic_url = $request->file('pic_url')->getClientOriginalName();
+        $file = $request->file('pic_url');
+        $extention = $file->getClientOriginalExtension();
+        $filename = time().'.'.$extention;
+        $file->move('images/', $filename);
+        $product->pic_url = $filename;
         $product->save();
         return response()->json([
             "status" => "Success"

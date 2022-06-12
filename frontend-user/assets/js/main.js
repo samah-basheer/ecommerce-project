@@ -211,7 +211,7 @@ if(home_products) {
                 element.appendChild(a);
                 product_img = a.appendChild(createElementWithClass('div', 'product-img'));
                 img = document.createElement('img');
-                img.src = "/assets/img/" + response.data.products[i]['pic_url'];
+                img.src = laravel_ip + "images/" + response.data.products[i]['pic_url'];
                 product_img.appendChild(img);
                 product_title = a.appendChild(createElementWithClass('div', 'product-title'));
                 product_title.textContent = response.data.products[i]['name'];
@@ -241,7 +241,7 @@ if(window.location.href == 'http://electronjs-laravel/pages/product.php') {
                 element.appendChild(a);
                 product_img = a.appendChild(createElementWithClass('div', 'product-img'));
                 img = document.createElement('img');
-                img.src = "/assets/img/" + response.data.products[i]['pic_url'];
+                img.src = laravel_ip + "images/" + response.data.products[i]['pic_url'];
                 product_img.appendChild(img);
                 product_title = a.appendChild(createElementWithClass('div', 'product-title'));
                 product_title.textContent = response.data.products[i]['name'];
@@ -270,7 +270,7 @@ if(window.location.href.includes('single-product')) {
         url: url
     })
         .then(function (response) {
-            img.src = "../assets/img/" + response.data.product.pic_url;
+            img.src = laravel_ip + "images/" + response.data.product.pic_url;
             title.textContent = response.data.product.name;
             stock.textContent = response.data.product.inventory.quantity;
             sku.textContent = response.data.product.sku;
@@ -388,7 +388,7 @@ if(window.location.href == 'http://electronjs-laravel/pages/wishlist.php') {
                 };
                 left.appendChild(icon);
                 img = document.createElement('img');
-                img.src = "../assets/img/" + response.data.wishlist[i].product.pic_url;
+                img.src = laravel_ip + "images/" + response.data.wishlist[i].product.pic_url;
                 left.appendChild(img);
                 right = element.appendChild(createElementWithClass('div', 'right'));
                 h2 = right.appendChild(document.createElement('h2'));
