@@ -32,6 +32,9 @@ pwShowHide.forEach((eyeIcon) => {
     });
 });
 
+// if(localStorage.getItem('user_id')) {
+//     window.location.replace('admin.html');
+// }
 
 if(add_prod) {
     add_prod.addEventListener("click",function(event){
@@ -183,7 +186,7 @@ if(login_btn) {
                 } else {
                     localStorage.setItem('user_id', response.data.user.id);
                     localStorage.setItem('access_token', response.data.access_token);
-                    window.location.href = 'index.html';
+                    window.location.href = 'admin.html';
                 }
             }).catch((error)=>error?.response?.data?.error);
     });
