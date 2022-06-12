@@ -96,7 +96,7 @@ add_product.addEventListener("click", function(event){
     data.append('pic_url', pic_url);
     data.append('price', price);
     data.append('category_id', category);
-    data.append('inventory_id', inventory);
+    data.append('inventory', inventory);
 
     let url = laravel_ip + 'api/v1/product/create';
 

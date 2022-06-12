@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,18 @@ class ProductController extends Controller
         ], 200);
     }
     public function create(Request $request) {
+        $inventory = new Inventory;
+        $inventory->quantity = $request->inventory;
+        $inventory->save();
+        $inventory_id = $inventory->id;
+
         $product = new Product;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->sku = $request->sku;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
-        $product->inventory_id = $request->inventory_id;
+        $product->inventory_id = $inventory_id;
         $product->pic_url = $request->pic_url;
         $product->save();
         return response()->json([
