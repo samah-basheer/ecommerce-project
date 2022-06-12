@@ -12,7 +12,10 @@ body {
 .buttons-collection {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+}
+.buttons-collection button {
+    min-width: 250px;
 }
 .buttons-collection button,.btn-submit {
     margin-top: 10px;
@@ -24,11 +27,10 @@ body {
     background-color: var(--primary);
     color: #ffffff;
     cursor: pointer;
-    width: 25%;
 }
 .category-section,.product-section {
     display: none;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .form-group {
     display: flex;
@@ -57,4 +59,7 @@ label {
 }
 .card .title {
     font-weight: 400;
+}
+.add-btn {
+    text-align: center;
 }
