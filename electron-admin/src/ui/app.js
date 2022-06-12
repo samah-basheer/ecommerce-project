@@ -54,6 +54,9 @@ function insertAfter(referenceNode, newNode) {
 add_prod.addEventListener("click", function(event){
     event.preventDefault();
 
+    let option = '';
+    let select = document.getElementById('select_category')
+
     let url = laravel_ip + 'api/v1/category';
 
     axios({
@@ -63,7 +66,10 @@ add_prod.addEventListener("click", function(event){
         .then(function (response) {
             if(response.data.status == "Success") {
                 for(let i = 0; i < response.data.categories.length; i++) {
-                    console.log(response.data.categories[i]);
+                    option = document.createElement('option');
+                    option.value = response.data.categories[i].id;
+                    option.textContent = response.data.categories[i].name;
+                    select.add(option);
                 }
             }
         }).catch((error)=>error?.response?.data?.error);
