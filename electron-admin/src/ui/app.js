@@ -7,14 +7,14 @@ let laravel_ip = "http://127.0.0.1:8000/";
 
 add_prod.addEventListener("click",function(event){
     event.preventDefault();
-    category_section.style.display = "block";
-    prod_section.style.display = "none";
+    category_section.style.display = "none";
+    prod_section.style.display = "block";
 });
 
 add_cat.addEventListener('click',function(e){
     e.preventDefault();
-    category_section.style.display = "none";
-    prod_section.style.display = "block";
+    category_section.style.display = "block";
+    prod_section.style.display = "none";
 });
 
 let add_category_btn = document.getElementById('add_category');
