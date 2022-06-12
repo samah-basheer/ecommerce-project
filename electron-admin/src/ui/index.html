@@ -18,7 +18,7 @@
             <h2 class="title">Add New Category</h2>
             <form>
                 <div class="form-group">
-                    <input type="text" class="cat-name" id="cat_name" placeholder="Name"/>
+                    <input type="text" class="cat-name" id="cat_name" placeholder="Name" required/>
                     <label>Add Category Name</label>
                 </div>
                 <div class="form-group">
@@ -39,7 +39,7 @@
             <h2 class="title">Add New Product</h2>
             <form>
                 <div class="form-group">
-                    <input type="text" id="prod_name" placeholder="Name"/>
+                    <input type="text" id="prod_name" placeholder="Name" required/>
                     <label>Add Product Name</label>
                 </div>
                 <div class="form-group">
@@ -47,11 +47,11 @@
                     <label>Add Product Description</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" id="prod_sku" placeholder="SKU"/>
+                    <input type="text" id="prod_sku" placeholder="SKU" required/>
                     <label>Add Product SKU</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" id="prod_price" placeholder="Price"/>
+                    <input type="number" id="prod_price" placeholder="Price" required/>
                     <label>Add Product Price</label>
                 </div>
                 <div class="form-group">
@@ -60,11 +60,14 @@
                     <label>Select Product Category</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" id="prod_inventory" placeholder="Inventory"/>
+                    <input type="number" id="prod_inventory" placeholder="Inventory" required/>
                     <label>Add Product Inventory</label>
                 </div>
                 <div class="add-btn">
-                    <button class="btn-submit">Add Product</button>
+                    <button class="btn-submit" id="add_product">Add Product</button>
+                </div>
+                <div class="status">
+                    <p id="prod_status"></p>
                 </div>
             </form>
         </div>

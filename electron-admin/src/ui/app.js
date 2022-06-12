@@ -74,3 +74,41 @@ add_prod.addEventListener("click", function(event){
             }
         }).catch((error)=>error?.response?.data?.error);
 });
+
+let add_product = document.getElementById('add_product');
+add_product.addEventListener("click", function(event){
+    event.preventDefault();
+
+    let status = document.getElementById("prod_status");
+
+    let prod_name = document.getElementById("prod_name").value;
+    let prod_desc = document.getElementById("prod_desc").value;
+    let sku = document.getElementById("prod_sku").value;
+    let price = document.getElementById("prod_price").value;
+    let category = document.getElementById("select_category").value;
+    let inventory = document.getElementById("prod_inventory").value;
+    let pic_url = "522-prom-night.jpg";
+
+    let data = new FormData();
+    data.append('name', prod_name);
+    data.append('description', prod_desc);
+    data.append('sku', sku);
+    data.append('pic_url', pic_url);
+    data.append('price', price);
+    data.append('category_id', category);
+    data.append('inventory_id', inventory);
+
+    let url = laravel_ip + 'api/v1/product/create';
+
+    axios({
+        method: 'POST',
+        url: url,
+        data: data
+    })
+        .then(function (response) {
+            if(response.data.status == "Success") {
+               console.log('success');
+            }
+        }).catch((error)=>error?.response?.data?.error);
+
+});
