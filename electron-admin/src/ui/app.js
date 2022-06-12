@@ -39,6 +39,8 @@ add_category_btn.addEventListener("click", function(event){
     })
         .then(function (response) {
             if(response.data.status == "Success") {
+                document.getElementById("cat_name").value = '';
+                document.getElementById("cat_desc").value = '';
                 status.innerHTML = response.data.status;
                 status.style.color = "green";
             }
