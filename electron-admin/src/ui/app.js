@@ -107,7 +107,14 @@ add_product.addEventListener("click", function(event){
     })
         .then(function (response) {
             if(response.data.status == "Success") {
-               console.log('success');
+                document.getElementById("prod_name").value = '';
+                prod_desc = document.getElementById("prod_desc").value = '';
+                document.getElementById("prod_sku").value = '';
+                document.getElementById("prod_price").value = '';
+                document.getElementById("select_category").value = '';
+                document.getElementById("prod_inventory").value = '';
+                status.innerHTML = response.data.status;
+                status.style.color = "green";
             }
         }).catch((error)=>error?.response?.data?.error);
 
